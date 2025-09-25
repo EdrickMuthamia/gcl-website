@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { useTheme } from "../contexts/ThemeContext";
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Expertise", href: "/expertise" },
-  { name: "Projects", href: "/projects" },
+  { name: "Services", href: "/services" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   return (
-    <header className="bg-white">
+    <header className="bg-white dark:bg-gray-900 transition-colors duration-300">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -23,7 +25,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">GCL Construction Equipment</span>
-            <img className="h-8 w-auto" src="/assets/gcl-logo.png" alt="GCL Logo" />
+            <img className="h-20 w-auto filter contrast-125 brightness-110" src="/assets/gcl-logo.png" alt="GCL Logo" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -41,11 +43,23 @@ export default function Header() {
             <Link
               key={item.name}
               to={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600"
+              className="text-sm font-semibold leading-6 text-gray-900 dark:text-white hover:text-orange-600 transition-colors duration-300"
             >
               {item.name}
             </Link>
           ))}
+        </div>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <button
+            onClick={toggleTheme}
+            className="rounded-md p-2 text-gray-700 dark:text-gray-300 hover:text-orange-600 transition-colors duration-300"
+          >
+            {isDark ? (
+              <SunIcon className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <MoonIcon className="h-6 w-6" aria-hidden="true" />
+            )}
+          </button>
         </div>
       </nav>
       <Dialog
@@ -55,12 +69,12 @@ export default function Header() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition-colors duration-300">
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">GCL Construction Equipment</span>
               <img
-                className="h-8 w-auto"
+                className="h-20 w-auto filter contrast-125 brightness-110"
                 src="/assets/gcl-logo.png"
                 alt="GCL Logo"
               />
@@ -81,7 +95,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}

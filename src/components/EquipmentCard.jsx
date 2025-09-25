@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function EquipmentCard({ equipment, onClick }) {
   return (
     <div
-      className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-500 border border-gray-200 hover:border-blue-400 hover:from-blue-50 hover:to-white"
+      className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-500 border border-gray-200 hover:border-orange-400 hover:from-orange-50 hover:to-white"
       onClick={() => onClick(equipment)}
     >
       <div className="aspect-h-3 aspect-w-4 bg-gradient-to-br from-gray-100 to-gray-200 sm:aspect-none sm:h-56 relative overflow-hidden">
@@ -22,7 +22,7 @@ export default function EquipmentCard({ equipment, onClick }) {
         </div>
       </div>
       <div className="flex flex-col justify-between space-y-3 p-6">
-        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+        <h3 className="text-lg font-bold text-gray-900 group-hover:text-orange-700 transition-colors duration-300">
           <span aria-hidden="true" className="absolute inset-0" />
           {equipment.name}
         </h3>
@@ -36,7 +36,7 @@ export default function EquipmentCard({ equipment, onClick }) {
             <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-semibold">Free Delivery</span>
           </div>
           <button
-            className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 transition-all duration-300 group-hover:scale-105"
+            className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold text-orange-600 bg-orange-50 hover:bg-orange-100 hover:text-orange-700 transition-all duration-300 group-hover:scale-105"
             onClick={(e) => {
               e.stopPropagation();
               onClick(equipment);

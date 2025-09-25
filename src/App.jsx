@@ -1,24 +1,24 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Expertise from "./pages/Expertise";
-import Projects from "./pages/Projects";
+import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 
 export default function App() {
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/expertise" element={<Expertise />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
@@ -26,6 +26,16 @@ export default function App() {
         
         {/* Floating Contact Buttons */}
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+          {/* Back to Top Button */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+            title="Back to top"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </button>
           <a
             href="https://wa.me/254733977750?text=Hi%20GCL,%20I%20need%20construction%20equipment%20rental"
             target="_blank"
@@ -40,7 +50,7 @@ export default function App() {
           </a>
           <a
             href="tel:+254733977750"
-            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center group animate-pulse hover:animate-none"
+            className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center group animate-pulse hover:animate-none"
             title="Call us now"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,7 +59,8 @@ export default function App() {
             <span className="ml-2 hidden group-hover:inline-block text-sm font-bold whitespace-nowrap">Call Now</span>
           </a>
         </div>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }

@@ -58,8 +58,8 @@ export default function Modal({ isOpen, onClose, equipment }) {
                         />
                       </div>
                       <div className="sm:col-span-6">
-                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
-                          <h4 className="text-lg font-bold text-blue-900 mb-2">
+                        <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+                          <h4 className="text-lg font-bold text-orange-900 mb-2">
                             Description
                           </h4>
                           <p className="text-gray-700 leading-relaxed">
@@ -79,7 +79,7 @@ export default function Modal({ isOpen, onClose, equipment }) {
                                 key={key}
                                 className="bg-white rounded-lg p-3 shadow-sm border border-gray-100"
                               >
-                                <dt className="text-sm font-semibold text-blue-600 capitalize">
+                                <dt className="text-sm font-semibold text-orange-600 capitalize">
                                   {key}
                                 </dt>
                                 <dd className="mt-1 text-base font-medium text-gray-900">
@@ -93,14 +93,14 @@ export default function Modal({ isOpen, onClose, equipment }) {
                       </div>
                       {equipment.features && (
                         <div className="sm:col-span-6">
-                          <div className="bg-green-50 rounded-xl p-4 border border-green-100">
-                            <h4 className="text-lg font-bold text-green-900 mb-3">
+                          <div className="bg-orange-50 rounded-xl p-4 border border-orange-100">
+                            <h4 className="text-lg font-bold text-orange-900 mb-3">
                               Key Features
                             </h4>
                             <ul className="space-y-3">
                               {equipment.features.map((feature, index) => (
                                 <li key={index} className="flex items-center text-gray-700">
-                                  <svg className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <svg className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                   </svg>
                                   <span className="font-medium">{feature}</span>
@@ -116,7 +116,7 @@ export default function Modal({ isOpen, onClose, equipment }) {
                 <div className="mt-8 sm:mt-6 sm:flex sm:flex-row-reverse gap-4 border-t border-gray-200 pt-6">
                   <a
                     href="tel:+254733977750"
-                    className="inline-flex w-full justify-center items-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-base font-bold text-white shadow-lg hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-300 sm:w-auto"
+                    className="inline-flex w-full justify-center items-center rounded-xl bg-gradient-to-r from-orange-600 to-orange-700 px-6 py-3 text-base font-bold text-white shadow-lg hover:from-orange-700 hover:to-orange-800 hover:scale-105 transition-all duration-300 sm:w-auto"
                   >
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

@@ -1,26 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-blue-50 via-white to-gray-50 min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-black min-h-screen transition-colors duration-300">
       {/* Hero Section */}
       <div className="relative isolate">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 sm:text-7xl mb-6">
+            <h1 className="text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-700 to-orange-800 dark:from-orange-400 dark:via-orange-500 dark:to-orange-600 sm:text-7xl mb-6">
               GCL Construction Equipment
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-8 rounded-full"></div>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              For more than 10 years, GCL Construction Equipment Ltd has been one of the leading rental services of construction equipment in Kenya and beyond. We provide top-quality earthmoving, mining, construction and agriculture equipment services.
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-orange-800 mx-auto mb-8 rounded-full"></div>
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              For more than 10 years, GCL Construction Equipment Ltd has been one of the leading rental services of construction equipment in the construction industry. We supply specialized machinery including pipelayers, welding tractors, bending machines, dozers, rollers, trucks and excavators with global shipping capabilities.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="/products"
-                className="rounded-md bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-500 hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              <Link
+                to="/products"
+                className="rounded-md bg-gradient-to-r from-orange-600 to-orange-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:from-orange-700 hover:to-orange-800 hover:scale-105 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
               >
                 View Our Equipment
-              </a>
+              </Link>
               <a
                 href="tel:+254733977750"
                 className="rounded-md bg-green-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-green-500 hover:scale-105 transition-all duration-300"
@@ -29,82 +30,132 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-6 flex items-center justify-center">
-              <a
-                href="/contact"
-                className="text-base font-semibold leading-6 text-blue-600 hover:text-blue-500 transition-colors duration-300"
+              <Link
+                to="/contact"
+                className="text-base font-semibold leading-6 text-orange-600 hover:text-orange-500 transition-colors duration-300"
               >
                 Get Free Quote <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
       {/* About Section */}
-      <div className="bg-gray-50 py-24 sm:py-32">
+      <div className="bg-gray-50 dark:bg-gray-800 py-24 sm:py-32 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               About Us
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              GCL Construction Equipment Ltd supplies a wide range of specialized construction machinery including pipelayers, welding tractors, bending machines, dozers, rollers, trucks and excavators. Our head office and equipment yard is located along Mombasa road in Nairobi, enabling us to ship equipment worldwide quickly and efficiently.
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              GCL Construction Equipment Ltd supplies a wide range of specialized construction machinery including pipelayers, welding tractors, bending machines, dozers, rollers, trucks and excavators. As a manufacturer, we provide high quality pipeline equipment under our own label. Our head office and equipment yard is located along Uhuru Highway in Nairobi, enabling us to ship equipment worldwide quickly and efficiently.
             </p>
           </div>
         </div>
       </div>
 
       {/* Vision Section */}
-      <div className="py-24 sm:py-32">
+      <div className="py-24 sm:py-32 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Our Vision
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              At GCL Construction Equipment Ltd we pride ourselves on our ability to provide top of the range earthmoving, mining, construction and agriculture equipment services within Kenya and beyond. Our entrenched relationships with major earthmoving brands and competent, highly skilled service technicians puts us in the prime position to offer the very best service and support.
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+              At GCL Construction Equipment Ltd we pride ourselves on our ability to provide top of the range earthmoving, mining, construction and agriculture equipment services within Kenya and beyond. Our entrenched relationships with major earthmoving brands and competent, highly skilled service technicians puts us in the prime position to offer the very best service and support. Our vast experience in earthmoving and open cast mining affords us the utmost confidence to support any operation in the toughest of Kenyan climates and territories.
             </p>
           </div>
         </div>
       </div>
 
       {/* Values Section */}
-      <div className="bg-gray-50 py-24 sm:py-32">
+      <div className="bg-gray-50 dark:bg-gray-800 py-24 sm:py-32 transition-colors duration-300">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Our Values
             </h2>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
               <div className="flex flex-col">
-                <dt className="text-lg font-semibold leading-7 text-gray-900">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
                   Accountability
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                   <p className="flex-auto">
                     We are involved, responsible and dedicated to our organization, its investors and our customers.
                   </p>
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-lg font-semibold leading-7 text-gray-900">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
                   Integrity
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                   <p className="flex-auto">
                     We are committed to being honorable and disciplined in all our dealings.
                   </p>
                 </dd>
               </div>
               <div className="flex flex-col">
-                <dt className="text-lg font-semibold leading-7 text-gray-900">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
                   Innovation
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
                   <p className="flex-auto">
                     We are determined to find the best available solutions to solve problems quickly and effectively.
+                  </p>
+                </dd>
+              </div>
+              <div className="flex flex-col">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  Courage
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <p className="flex-auto">
+                    We are bold, always striving to believe in bigger and better achievements.
+                  </p>
+                </dd>
+              </div>
+              <div className="flex flex-col">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  Support
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <p className="flex-auto">
+                    We are in the industry of service and know that our primary focus on offering the very best levels of support is what sets us apart from our competitors.
+                  </p>
+                </dd>
+              </div>
+              <div className="flex flex-col">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  Leadership
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <p className="flex-auto">
+                    We endeavour to work smartly, always finding ways to improve our service offering, to do more – faster.
+                  </p>
+                </dd>
+              </div>
+              <div className="flex flex-col">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  Partnership
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <p className="flex-auto">
+                    We try to find common ground in all our interactions, as we all like to work with people that we can relate to.
+                  </p>
+                </dd>
+              </div>
+              <div className="flex flex-col">
+                <dt className="text-lg font-semibold leading-7 text-gray-900 dark:text-white">
+                  Commitment
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600 dark:text-gray-300">
+                  <p className="flex-auto">
+                    We are deadline-driven to achieve maximum productivity on all levels.
                   </p>
                 </dd>
               </div>
@@ -114,7 +165,7 @@ export default function Home() {
       </div>
       
       {/* Testimonials Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-24 sm:py-32">
+      <div className="bg-gradient-to-r from-orange-600 to-orange-800 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-4xl font-black text-white mb-4">What Our Clients Say</h2>
@@ -130,7 +181,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-white/90 mb-4">"GCL provided excellent equipment for our highway project. Professional service and reliable machinery."</p>
-              <p className="text-white font-semibold">- Kenya Roads Authority</p>
+              <p className="text-white font-semibold">- Kenya National Highways Authority</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="flex items-center mb-4">
@@ -140,8 +191,8 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-white/90 mb-4">"24/7 support and quick delivery. Their bulldozers helped us complete our project ahead of schedule."</p>
-              <p className="text-white font-semibold">- Bamburi Cement Ltd</p>
+              <p className="text-white/90 mb-4">"Outstanding equipment quality and 24/7 support. GCL helped us complete our mining project ahead of schedule."</p>
+              <p className="text-white font-semibold">- East African Portland Cement</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="flex items-center mb-4">
@@ -151,8 +202,8 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-white/90 mb-4">"Top-quality excavators and wheel loaders. GCL is our go-to equipment rental partner."</p>
-              <p className="text-white font-semibold">- Tilenga Construction</p>
+              <p className="text-white/90 mb-4">"Reliable equipment and exceptional service. GCL has been our trusted partner for over 5 years."</p>
+              <p className="text-white font-semibold">- China Road & Bridge Corporation</p>
             </div>
           </div>
         </div>
@@ -163,19 +214,19 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-2 group-hover:scale-110 transition-transform duration-300">10+</div>
+              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">15+</div>
               <div className="text-white/80 font-semibold">Years Experience</div>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600 mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
+              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">1000+</div>
               <div className="text-white/80 font-semibold">Projects Completed</div>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
               <div className="text-white/80 font-semibold">Support Available</div>
             </div>
             <div className="group">
-              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 mb-2 group-hover:scale-110 transition-transform duration-300">98%</div>
               <div className="text-white/80 font-semibold">Client Satisfaction</div>
             </div>
           </div>
