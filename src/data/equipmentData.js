@@ -33,7 +33,7 @@ export const equipmentData = [
       "Fuel efficient engine",
       "Easy maintenance"
     ],
-    imageUrl: "/assets/crawler-tractor-1.jpeg"
+    imageUrl: "/assets/crawler-tractor-2.jpeg"
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ export const equipmentData = [
       "High lifting capacity",
       "Excellent visibility"
     ],
-    imageUrl: "/assets/wheel-loader.jpeg"
+    imageUrl: "/assets/wheel-loader-1.jpeg"
   },
   {
     id: 5,
@@ -87,7 +87,7 @@ export const equipmentData = [
       "Compact design",
       "Versatile attachments"
     ],
-    imageUrl: "/assets/wheeled-excavator-2.jpeg"
+    imageUrl: "/assets/wheeled-excavator-1.jpeg"
   }
 ];
 

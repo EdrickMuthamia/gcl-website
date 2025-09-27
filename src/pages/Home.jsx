@@ -4,15 +4,31 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-black min-h-screen transition-colors duration-300">
-      {/* Hero Section */}
-      <div className="relative isolate">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      {/* Hero Section with Image Slider */}
+      <div className="relative isolate overflow-hidden">
+        {/* Background Image Slider */}
+        <div className="absolute inset-0 -z-10">
+          <div className="relative h-full w-full">
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10"></div>
+            <div className="animate-slide-1 absolute inset-0 opacity-100">
+              <img src="/assets/bulldozer.jpg" alt="Bulldozer" className="h-full w-full object-cover" />
+            </div>
+            <div className="animate-slide-2 absolute inset-0 opacity-0">
+              <img src="/assets/red-excavator.jpg" alt="Excavator" className="h-full w-full object-cover" />
+            </div>
+            <div className="animate-slide-3 absolute inset-0 opacity-0">
+              <img src="/assets/wheel-loader-1.jpeg" alt="Wheel Loader" className="h-full w-full object-cover" />
+            </div>
+          </div>
+        </div>
+        
+        <div className="relative z-20 mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-700 to-orange-800 dark:from-orange-400 dark:via-orange-500 dark:to-orange-600 sm:text-7xl mb-6">
+            <h1 className="text-5xl font-black tracking-tight text-white sm:text-7xl mb-6">
               GCL Construction Equipment
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-600 to-orange-800 mx-auto mb-8 rounded-full"></div>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-orange-700 mx-auto mb-8 rounded-full"></div>
+            <p className="mt-6 text-lg leading-8 text-gray-200">
               For more than 10 years, GCL Construction Equipment Ltd has been one of the leading rental services of construction equipment in the construction industry. We supply specialized machinery including pipelayers, welding tractors, bending machines, dozers, rollers, trucks and excavators with global shipping capabilities.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
