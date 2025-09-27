@@ -8,6 +8,7 @@ import Products from "./pages/Products";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import BackToTop from "./components/BackToTop";
+import About from "./pages/About";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </main>
         <Footer />

@@ -1,193 +1,238 @@
 import React from "react";
+import { useRef, useEffect } from "react";
+
+function useRevealOnScroll() {
+  const ref = useRef([]);
+  useEffect(() => {
+    const elements = ref.current;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    elements.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
 
 export default function About() {
+  const revealRefs = useRevealOnScroll();
+
+  const sections = [
+    {
+      key: "about",
+      title: (
+        <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 mb-10 drop-shadow-lg">
+          About GCL Construction Equipment Ltd
+        </h1>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            For more than 10 years GCL Construction Equipment Ltd has been one of the leading rental services of construction equipment in the construction industry.
+          </p>
+          <p>
+            GCL Construction Equipment LTD supplies a wide range of specialized construction machinery for pipeline construction, maintenance, and repair.
+          </p>
+          <p>
+            As a manufacturer, GCL Construction Equipment LTD provides high quality pipeline equipment under its own label.
+          </p>
+          <p>
+            Our business outline consists of a program of heavy-duty earthmoving equipment.
+          </p>
+          <p>
+            GCL Construction Equipment LTD has a global presence in rental fleet with key earthmoving brands.
+          </p>
+          <p>
+            Our dynamic rental fleet includes equipment from several manufacturers, with opportunities for sale and rental of related equipment such as mandrels, pipe facing machines, dozers, rollers, trucks, and excavators.
+          </p>
+          <p>
+            Our head office and equipment yard is located along Mombasa road, Nairobi, enabling us to ship equipment worldwide quickly and efficiently.
+          </p>
+          <div className="bg-gradient-to-r from-orange-500/30 to-purple-700/30 backdrop-blur-md rounded-xl p-6 mt-6 border border-orange-400/40 shadow-lg">
+            <h4 className="text-lg font-bold text-orange-300 mb-4">Our Head Office</h4>
+            <p className="text-gray-200">
+              Highway Mall, Uhuru highway (Opp. Nyayo national stadium), Nairobi<br/>
+              <span className="text-orange-300">Email:</span> globeconceptske@gmail.com<br/>
+              <span className="text-orange-300">Phone:</span> +254 (0) 733 977 750<br/>
+              <span className="text-orange-300">Website:</span> www.essequipmentkenya.com
+            </p>
+          </div>
+          <p>
+            To meet worldwide customers' demands locally, GCL Construction Equipment LTD has established an extensive network of regional companies, agents, and partners.
+          </p>
+        </div>
+      ),
+    },
+    {
+      key: "rental",
+      title: (
+        <h2 className="text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-8 drop-shadow-md">
+          Rental and Sales
+        </h2>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            GCL Construction Equipment LTD focuses on sales and rental of high quality new and used equipment for roads, dams, pipeline, and housing construction projects.
+          </p>
+          <p>
+            Our rental fleet is amongst the largest and most modern in the country, supplied in first class condition and compliant with the latest HSE-standards.
+          </p>
+        </div>
+      ),
+    },
+    {
+      key: "vision",
+      title: (
+        <h2 className="text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-orange-400 to-yellow-500 mb-8 drop-shadow-md">
+          Our Vision
+        </h2>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            We pride ourselves on providing top-tier earthmoving, mining, construction, and agriculture equipment services within Kenya and beyond.
+          </p>
+          <p>
+            Our relationships with major brands and skilled technicians position us to offer the best service and support.
+          </p>
+          <p>
+            Our experience in earthmoving and open cast mining enables us to support any operation in the toughest climates.
+          </p>
+          <p>
+            Our facilities are professionally staffed and well-equipped to support you when and where it matters.
+          </p>
+          <div className="bg-gradient-to-r from-orange-500/30 to-purple-700/30 backdrop-blur-md rounded-xl p-6 mt-8 border border-orange-400/40 shadow-lg">
+            <p className="text-gray-200 italic">
+              Signed<br/>
+              <strong className="text-orange-300">Eric Mwenda</strong><br/>
+              Director GCL Construction Equipment Ltd
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      key: "expertise",
+      title: (
+        <h2 className="text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-purple-500 mb-8 drop-shadow-md">
+          Our Expertise
+        </h2>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            GCL Construction Equipment Ltd is more than a supplier. We offer third party equipment inspection, service, reviews, flexible rental terms, and attractive financing and transportation opportunities.
+          </p>
+          <p>
+            We assist in sourcing alternatives and provide advisory roles in establishing equipment needs, offering a wide range of products and services for maximum project efficiency and productivity.
+          </p>
+        </div>
+      ),
+    },
+    {
+      key: "quality",
+      title: (
+        <h2 className="text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 mb-8 drop-shadow-md">
+          Quality, Flexibility, Reliability
+        </h2>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            Delivering on time requires flexibility and timely information. Communication and customer focus are key.
+          </p>
+          <p>
+            Equipment must meet project requirements, be well maintained, easy to operate, and comply with local standards. This is our Quality.
+          </p>
+          <p>
+            We are clear with expectations in equipment, service, and finance. Meeting requirements is our Reliability.
+          </p>
+          <p>
+            For over 30 years, GCL Construction Equipment Ltd has established its name and reputation in the global market for pipeline equipment.
+          </p>
+          <p>
+            We continuously improve to remain a flexible, customer-focused partner you can build on and rely on!
+          </p>
+        </div>
+      ),
+    },
+    {
+      key: "summary",
+      title: (
+        <h2 className="text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 mb-8 drop-shadow-md">
+          Summary
+        </h2>
+      ),
+      content: (
+        <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
+          <p>
+            By offering a wide range of products and services, worldwide support, engineering, and technical expertise, GCL Construction Equipment provides comfort of a single supply source.
+          </p>
+          <p>
+            We take pride in our team, who continually demonstrate our core values: Quality - Flexibility - Reliability. Our commitment is to provide first class service, on time and on budget.
+          </p>
+          <div className="bg-gradient-to-r from-gray-700/60 to-gray-900/80 backdrop-blur-md rounded-xl p-6 mt-6 border border-purple-400/40 shadow-lg">
+            <p className="text-gray-200 font-medium">
+              We will not compromise our values, ethics, integrity, passion or professionalism in our dealings with all stakeholders.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      key: "values",
+      title: null,
+      content: (
+        <div className="bg-gradient-to-r from-orange-600 via-pink-600 to-purple-700 rounded-2xl p-10 text-center shadow-2xl border border-orange-400/40 animate-pulse">
+          <h3 className="text-3xl font-extrabold text-white mb-4 tracking-widest drop-shadow-lg">
+            Our Key Values
+          </h3>
+          <p className="text-white text-xl font-semibold tracking-wide">
+            STRENGTH, PERFORMANCE & RELIABILITY UNDER ALL CIRCUMSTANCES.<br/>
+            <span className="text-orange-200">READY FOR FUTURE CHALLENGES</span>
+          </p>
+        </div>
+      ),
+      wrapperClass: "mx-auto max-w-4xl mt-20",
+    },
+  ];
+
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 min-h-screen transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        {/* About Us Section */}
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl mb-8">
-            About GCL Construction Equipment Ltd
-          </h1>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              For more than 10 years GCL Construction Equipment Ltd has been one of the leading rental services of construction equipment in the construction industry.
-            </p>
-            
-            <p>
-              GCL Construction Equipment LTD will supply a wide range of specialized construction machinery such as pipelayers, welding tractors, bending machines and related equipment for pipeline construction, as well as for pipeline maintenance and repair.
-            </p>
-            
-            <p>
-              As a manufacturer, GCL Construction Equipment LTD provides high quality pipeline equipment under its own label.
-            </p>
-            
-            <p>
-              GCL Construction Equipment LTD has a great business outline that consists of a program of heavy-duty earthmoving equipment.
-            </p>
-            
-            <p>
-              GCL Construction Equipment LTD has a global presence in rental fleet that consists primarily, but not exclusively key earthmoving brands.
-            </p>
-            
-            <p>
-              Due to the dynamics in our rental fleet, it also consists of related equipment from several manufactures, and since equipment from our rental fleet is also for sale there is often availability and opportunity for sale and rental of related equipment such as mandrels, pipe facing machines, and equipment such as dozers, rollers, trucks and excavators.
-            </p>
-            
-            <p>
-              Our head office and equipment yard is located along Mombasa road, in Nairobi. This central location enables us to ship equipment to jobsites anywhere in the world, quickly and efficiently.
-            </p>
-            
-            <div className="bg-orange-50 dark:bg-gray-800 rounded-xl p-6 mt-6">
-              <h4 className="text-lg font-bold text-orange-900 dark:text-orange-400 mb-4">Our Head Office</h4>
-              <p className="text-gray-700 dark:text-gray-300">
-                Highway Mall located along Uhuru highway (Opp. Nyayo national stadium), Nairobi<br/>
-                Email: globeconceptske@gmail.com<br/>
-                Phone: +254 (0) 733 977 750<br/>
-                Website: www.essequipmentkenya.com
-              </p>
-            </div>
-            
-            <p>
-              To meet our worldwide customers' demands locally, GCL Construction Equipment LTD has established an extensive network of regional companies, agents and partners. Combined with the vast brands networks, our presence is truly global.
-            </p>
+        {sections.map((section, idx) => (
+          <div
+            key={section.key}
+            ref={el => revealRefs.current[idx] = el}
+            className={`opacity-0 translate-y-10 transition-all duration-700 ease-out ${section.wrapperClass || "mx-auto max-w-4xl mt-20 glassmorphism-card"}`}
+            style={{ transitionDelay: `${idx * 120}ms` }}
+          >
+            {section.title}
+            {section.content}
           </div>
-        </div>
-
-        {/* Rental and Sales Section */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-            Rental and Sales
-          </h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              GCL Construction Equipment LTD focus on sales and rental of high quality new and used equipment for the construction of roads, dams, pipeline and housing construction projects.
-            </p>
-            
-            <p>
-              Our rental fleet is amongst the largest and most modern equipment fleets in the country with high quality items. We market our rental fleet countrywide, putting great effort into keeping our rental fleet up to date. All machinery is supplied in first class condition and complies with the latest HSE-standards.
-            </p>
-          </div>
-        </div>
-
-        {/* Vision Section */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-            Our Vision
-          </h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              At GCL Construction Equipment Ltd we pride ourselves on our ability to provide top of the range earthmoving, mining, construction and agriculture equipment services within Kenya and beyond.
-            </p>
-            
-            <p>
-              Our entrenched relationships with major earthmoving brands and our competent, highly skilled service technicians puts us in the prime position to offer the very best service and support.
-            </p>
-            
-            <p>
-              Our vast experience in earthmoving and open cast mining affords us the utmost confidence to support any operation in the toughest of Kenyan climates and territories.
-            </p>
-            
-            <p>
-              Our facilities are professionally staffed and well-equipped to support you when and where it matters.
-            </p>
-            
-            <div className="bg-orange-50 dark:bg-gray-800 rounded-xl p-6 mt-8">
-              <p className="text-gray-700 dark:text-gray-300 italic">
-                Signed<br/>
-                <strong>Eric Mwenda</strong><br/>
-                Director GCL Construction Equipment Ltd
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Our Expertise Section */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-            Our Expertise
-          </h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              GCL Construction Equipment Ltd is so much more than a supplier of sale and rental equipment. In addition we can also offer a variety of other services. Our team of professionals offer third party equipment inspection, service, reviews of equipment and flexible rental terms, together with attractive opportunities for financing and transportation.
-            </p>
-            
-            <p>
-              We also assist in sourcing alternatives if supply and demand do not meet project requirements and we can provide an advisory role in establishing equipment needs. Since our customers usually prefer a single supply source, GCL Construction Equipment Ltd will definitely offer a wide range of products and services to provide the comfort of dealing with a single supply source. Our emphasis on service means that we work closely with our customers to help achieve maximum project efficiency and productivity.
-            </p>
-          </div>
-        </div>
-
-        {/* Quality, Flexibility, Reliability Section */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-            Quality, Flexibility, Reliability
-          </h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              Delivering on time requires a high degree of flexibility. Timely delivery not only means the physical delivery of equipment, but also the timely delivery of information.
-            </p>
-            
-            <p>
-              The quantities of equipment models required often changes both before and during a project. And when the requested additional equipment is no longer available, offering alternatives is essential. That is why communication with customers and therefore the market is necessary to be able to deliver on time. Flexibility and customer focus are the basic concepts.
-            </p>
-            
-            <p>
-              It is imperative that equipment that is supplied must meet the requirements of the project. It must do what is expected in extreme circumstances and therefore must be well maintained. In addition, the equipment must be easy to operate and maintain on the jobsite, whilst also meeting local requirements worldwide. By taking this into consideration in terms of design, choice of parts and suppliers and also in terms of knowledge and expertise in maintenance and assembly, the customer receives the machines on which he can build and trust. We call this Quality.
-            </p>
-            
-            <p>
-              In addition it is necessary for customers as well as suppliers that GCL Construction Equipment Ltd is clear with regards to expectations, not only in terms of equipment and service, but also in terms of finance. Communication is of great importance. Meeting our customers' requirements and expectations is the basis of our Reliability.
-            </p>
-            
-            <p>
-              Because GCL Construction Equipment Ltd has proven to comply with these key words for over 30 years, we have established our name and our reputation in the global market for pipeline equipment.
-            </p>
-            
-            <p>
-              GCL Construction Equipment Ltd will deliver quality and we are continuously improving to stay a flexible, customer-focused partner who you can build on and rely on!
-            </p>
-          </div>
-        </div>
-
-        {/* Summary Section */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
-            Summary
-          </h2>
-          
-          <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-            <p>
-              By offering a wide range of products and services, worldwide support network, engineering and technical expertise, GCL Construction Equipment provides our customers with the comfort of dealing with a single supply source. We take pride in helping our customers by developing and constructing new and innovative machinery based on specific customer needs, and on Quality, Reliability and Flexibility. Our fleet of rental machines is considered to be one of the biggest and most modern fleets globally available.
-            </p>
-            
-            <p>
-              We take pride in our name, and we are proud of our professional team of colleagues who continually demonstrate our core values: Quality - Flexibility - Reliability. Incorporating our core values, together with our commitment to providing our equipment and services on time, on budget and to customer requirements and specifications, our Professionals are committed to providing our customers with a first class service.
-            </p>
-            
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 mt-6">
-              <p className="text-gray-700 dark:text-gray-300 font-medium">
-                We will not compromise our values, ethics, integrity, passion or professionalism in our dealings with all stakeholders.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Key Values Banner */}
-        <div className="mx-auto max-w-4xl mt-16">
-          <div className="bg-gradient-to-r from-orange-600 to-orange-800 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">Our Key Values</h3>
-            <p className="text-white text-lg">
-              STRENGTH, PERFORMANCE & RELIABILITY UNDER ALL CIRCUMSTANCES.<br/>
-              READY FOR FUTURE CHALLENGES
-            </p>
-          </div>
-        </div>
+        ))}
+        <style>{`
+          .glassmorphism-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem 2rem;
+          }
+          .reveal-visible {
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        `}</style>
       </div>
     </div>
   );
