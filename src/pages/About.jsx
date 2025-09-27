@@ -3,6 +3,24 @@ import { useRef, useEffect } from "react";
 
 function useRevealOnScroll() {
   const ref = useRef([]);
+  // Remove reveal-visible when not intersecting, so animation can replay on rescroll
+  useEffect(() => {
+    const elements = ref.current;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+          } else {
+            entry.target.classList.remove("reveal-visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    elements.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const elements = ref.current;
     const observer = new window.IntersectionObserver(
